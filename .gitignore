@@ -6,3 +6,15 @@ __pycache__/tratamento_planilha.cpython-312.pyc
 dados_turmas/Relatório de Rendimento Escolar_900.xlsx
 dados_turmas/Relatório de Rendimento Escolar_901.xlsx
 dados_turmas/Relatório de Rendimento Escolar_902.xlsx
+imagens_totais/faltas_900.png
+imagens_totais/faltas_901.png
+imagens_totais/faltas_902.png
+imagens_totais/medias_faltas_bimestre.png
+imagens_totais/medias_notas_bimestre.png
+imagens_totais/notas_900.png
+imagens_totais/notas_901.png
+imagens_totais/notas_902.png
+apresentacao_totais.pptx
+/imagens_totais
+/dados_turmas
+/__pycache__

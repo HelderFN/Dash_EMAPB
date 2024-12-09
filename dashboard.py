@@ -30,7 +30,7 @@ ax.legend().remove()  # Remove a legenda para clareza
 st.pyplot(fig)
 
 # Gráfico 2: Notas empilhadas por aluno
-st.header("Notas Empilhadas por Aluno")
+st.header("Notas por Aluno")
 turma_filtrada = st.selectbox(
     "Selecione uma Turma para Analisar", data['Turma'].unique())
 dados_turma = data[data['Turma'] == turma_filtrada]

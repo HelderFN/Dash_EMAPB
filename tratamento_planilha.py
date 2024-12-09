@@ -21,7 +21,7 @@ def limpar_df(path):
     df.drop(columns=df.columns[12:], inplace=True)
 
     # Renomear colunas
-    colunas_rename = ["Nome", "Notas_1bim", "Faltas_1bim", "Notas_2bim", "Faltas_2bim",
+    colunas_rename = ["nome", "Notas_1bim", "Faltas_1bim", "Notas_2bim", "Faltas_2bim",
                       "Notas_3bim", "Faltas_3bim", "Notas_4bim", "Faltas_4bim", "Rec", "Media", "Faltas"]
     df.columns = colunas_rename
 
@@ -30,7 +30,7 @@ def limpar_df(path):
 
     # Transformar em formato longo
     df_long = df.melt(
-        id_vars=["Nome"],
+        id_vars=["nome"],
         var_name="tipo",
         value_name="valor"
     )
@@ -44,7 +44,7 @@ def limpar_df(path):
 
     # Pivotar de volta ao formato desejado
     df_final = df_long.pivot_table(
-        index=["Nome", "bimestre"],
+        index=["nome", "bimestre"],
         columns="variavel",
         values="valor",
         aggfunc="first").reset_index()
@@ -53,7 +53,7 @@ def limpar_df(path):
     df_final.columns.name = None
     df_final = df_final.rename(columns={'nota': 'notas', 'faltas': 'faltas'})
     df_final = df_final.sort_values(
-        by=['bimestre', 'Nome']).reset_index(drop=True)
+        by=['bimestre', 'nome']).reset_index(drop=True)
 
     return df_final
 
@@ -73,7 +73,7 @@ def processar_planilhas(caminhos):
         # Extrai número da turma a partir do nome do arquivo
         turma = int(caminho.split("_")[-1].split(".")[0])
         df = limpar_df(caminho)
-        df['Turma'] = turma  # Adiciona a coluna Turma
+        df['turma'] = turma  # Adiciona a coluna Turma
         lista_dfs.append(df)
 
     return lista_dfs
